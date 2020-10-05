@@ -18,6 +18,7 @@ $(document).ready(function(){
   $('input').change(function(){
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: false,
+      gent : $('.gent').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
@@ -50,6 +51,7 @@ $(document).ready(function(){
     e.preventDefault();
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: false,
+      gent : $('.gent').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
@@ -84,6 +86,7 @@ $(document).ready(function(){
     e.preventDefault();
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: true,
+      gent : $('.gent').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
