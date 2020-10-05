@@ -6,7 +6,7 @@ local isSkinCreatorOpened = false -- Change this value to show/hide UI
 local cam = -1 -- Camera control
 local heading = 332.219879 -- Heading coord
 local zoom = "visage" -- Define which tab is shown first (Default: Head)
-local PrevGender
+local face
 
 ------------------------------------------------------------------
 --                          ESX
@@ -125,20 +125,21 @@ RegisterNUICallback('updateSkin', function(data)
         CloseSkinCreator()
     else
         local playerPed = PlayerPedId()
-        if PrevGender ~= gender then
-            local characterModel
+    
+        local characterModel
 
-            if gender == 0 then
-                TriggerEvent("skinchanger:change", "sex", 0)
-                face = dad
-            else
-                TriggerEvent("skinchanger:change", "sex", 1)
-                face = mum
-            end
+        if gent == 0 then
+            TriggerEvent("skinchanger:change", "sex", 0)
+            face = dad
+        else
+            TriggerEvent("skinchanger:change", "sex", 1)
+            face = mum
         end
+        
+		SetPedHeadBlendData(playerPed, face, face, face, skin, skin, skin, 1.0, 1.0, 1.0, true)
 
         -- Face
-        SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
+        --SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
         -- SetPedHeadBlendData			(GetPlayerPed(-1), dad, mum, dad, skin, skin, skin, dadmumpercent * 0.1, dadmumpercent * 0.1, 1.0, true)
         SetPedEyeColor(GetPlayerPed(-1), eyecolor)
         if acne == 0 then
