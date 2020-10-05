@@ -111,7 +111,7 @@ input[type="radio"] {
       left: 7px;
       width: 13px;
       height: 9px;
-      background: url("assets/radio-check.png") no-repeat;
+      background: url("../assets/radio-check.png") no-repeat;
       background-size: cover;
       -webkit-transition: all .15s ease-in-out;
       -o-transition: all .15s ease-in-out;
@@ -122,13 +122,13 @@ input[type="radio"]:checked + span:after {
 
 @font-face {
   font-family: 'Circular';
-  src: url("fonts/Circular-Bold.woff2") format("woff2"), url("fonts/Circular-Bold.woff") format("woff"), url("fonts/Circular-Bold.ttf") format("truetype");
+  src: url("../fonts/Circular-Bold.woff2") format("woff2"), url("../fonts/Circular-Bold.woff") format("woff"), url("../fonts/Circular-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal; }
 
 @font-face {
   font-family: 'Circular';
-  src: url("fonts/Circular-Book.woff2") format("woff2"), url("fonts/Circular-Book.woff") format("woff"), url("fonts/Circular-Book.ttf") format("truetype");
+  src: url("../fonts/Circular-Book.woff2") format("woff2"), url("../fonts/Circular-Book.woff") format("woff"), url("../fonts/Circular-Book.ttf") format("truetype");
   font-weight: normal;
   font-style: normal; }
 
@@ -206,7 +206,7 @@ form {
     content: '';
     width: 30px;
     height: 38px;
-    background: url(assets/identity.png) no-repeat;
+    background: url('../assets/identity.png') no-repeat;
     position: absolute;
     top: calc(50% - 10px);
     left: 50%;
@@ -217,7 +217,7 @@ form {
     content: '';
     width: 32px;
     height: 37px;
-    background: url(assets/head.png) no-repeat;
+    background: url('../assets/head.png') no-repeat;
     position: absolute;
     top: calc(50% - 10px);
     left: 50%;
@@ -228,7 +228,7 @@ form {
     content: '';
     width: 26px;
     height: 39px;
-    background: url(assets/pilosite.png) no-repeat;
+    background: url('../assets/pilosite.png') no-repeat;
     position: absolute;
     top: calc(50% - 10px);
     left: 50%;
@@ -239,7 +239,7 @@ form {
     content: '';
     width: 25px;
     height: 38px;
-    background: url(assets/clothes.png) no-repeat;
+    background: url('../assets/clothes.png') no-repeat;
     position: absolute;
     top: calc(50% - 10px);
     left: 50%;
@@ -289,11 +289,11 @@ form {
         display: inline-block;
         vertical-align: middle; }
       .block .input .type-range .arrow-left {
-        background: url("assets/arrow-left.png") no-repeat;
+        background: url("../assets/arrow-left.png") no-repeat;
         background-size: cover;
         margin-left: 5px; }
       .block .input .type-range .arrow-right {
-        background: url("assets/arrow-right.png") no-repeat;
+        background: url("../assets/arrow-right.png") no-repeat;
         background-size: cover; }
     .block .input .type-img {
       display: -webkit-box;
@@ -327,7 +327,7 @@ form {
           right: 5px;
           width: 10px;
           height: 10px;
-          background: white url("assets/radio-check-black.png") no-repeat center center;
+          background: white url("../assets/radio-check-black.png") no-repeat center center;
           border-radius: 100%;
           padding: 4px;
           background-size: 8px 6px;
@@ -476,9 +476,9 @@ form {
     vertical-align: middle;
     border: none; }
   .vetements ul .arrowvetement-left {
-    background: url("assets/arrow-left.png") no-repeat;
+    background: url("../assets/arrow-left.png") no-repeat;
     background-size: cover;
     margin-left: 5px; }
   .vetements ul .arrowvetement-right {
-    background: url("assets/arrow-right.png") no-repeat;
+    background: url("../assets/arrow-right.png") no-repeat;
     background-size: cover; }
