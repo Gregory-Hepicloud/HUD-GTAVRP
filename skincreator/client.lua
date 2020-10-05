@@ -72,7 +72,7 @@ RegisterNUICallback('updateSkin', function(data)
 
 		-- Face
 		SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
-		SetPedHeadBlendData			(GetPlayerPed(-1), dad, mum, dad, skin, skin, skin, dadmumpercent * 0.1, dadmumpercent * 0.1, 1.0, true)
+		--SetPedHeadBlendData			(GetPlayerPed(-1), dad, mum, dad, skin, skin, skin, dadmumpercent * 0.1, dadmumpercent * 0.1, 1.0, true)
 		SetPedEyeColor				(GetPlayerPed(-1), eyecolor)
 		if acne == 0 then
 			SetPedHeadOverlay		(GetPlayerPed(-1), 0, acne, 0.0)
