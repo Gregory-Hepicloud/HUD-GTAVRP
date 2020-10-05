@@ -27,12 +27,13 @@ $(document).ready(function(){
     // Close Skin Creator
     if(event.data.openSkinCreator == false){
       $(".skinCreator").fadeOut(400);
+      $(".rotation").fadeOut(400);
       $("#cursorPointer").css("display","none");
     }
 
     // Click
     if (event.data.type == "click") {
-      triggerClick(cursorX - 1, cursorY - 1);
+      triggerClick(cursorX - 2, cursorY - 2);
     }
   });
 

@@ -17,7 +17,7 @@ RegisterNUICallback('updateSkin', function(data)
 	-- Face
 	dad = tonumber(data.dad)
 	mum = tonumber(data.mum)
-	dadmumpercent = tonumber(data.dadmumpercent)
+	dadmumpercent = tonumber(data.dadmumpercent)/10+0.0
 	skin = tonumber(data.skin)
 	eyecolor = tonumber(data.eyecolor)
 	acne = tonumber(data.acne)
@@ -65,10 +65,13 @@ RegisterNUICallback('updateSkin', function(data)
 		local prop_watches_text = GetPedPropTextureIndex(ped, 6)
 
 		TriggerServerEvent("updateSkin", dad, mum, dadmumpercent, skin, eyecolor, acne, skinproblem, freckle, wrinkle, wrinkleopacity, eyebrow, eyebrowopacity, beard, beardopacity, beardcolor, hair, haircolor, torso, torsotext, leg, legtext, shoes, shoestext, accessory, accessorytext, undershirt, undershirttext, torso2, torso2text, prop_hat, prop_hat_text, prop_glasses, prop_glasses_text, prop_earrings, prop_earrings_text, prop_watches, prop_watches_text)
+		isSkinCreatorOpened = false
+		SkinCreator(false)
 	else
 		SetPedDefaultComponentVariation(GetPlayerPed(-1))
 
 		-- Face
+		SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
 		SetPedHeadBlendData			(GetPlayerPed(-1), dad, mum, dad, skin, skin, skin, dadmumpercent * 0.1, dadmumpercent * 0.1, 1.0, true)
 		SetPedEyeColor				(GetPlayerPed(-1), eyecolor)
 		if acne == 0 then
@@ -961,6 +964,8 @@ function SkinCreator(enable)
 	else
 		FreezeEntityPosition(ped, false)
 		SetPlayerInvincible(ped, false)
+		RenderScriptCams(false, false, 0, 1, 0)
+		DestroyCam(cam, false)
 	end
 end
 
