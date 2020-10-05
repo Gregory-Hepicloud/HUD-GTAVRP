@@ -1235,7 +1235,7 @@ Citizen.CreateThread(function()
     end
 end)
 
-function ShowSkinCreator(enable, type)
+function ShowSkinCreator(enable)
     SetNuiFocus(enable, enable)
     SendNUIMessage({
         openSkinCreator = enable
@@ -1245,7 +1245,7 @@ end
 function CloseSkinCreator()
     isSkinCreatorOpened = false
     local ped = PlayerPedId()
-    ShowSkinCreator(false, nil)
+    ShowSkinCreator(false)
     isCameraActive = false
     SetCamActive(cam, false)
     RenderScriptCams(false, true, 500, true, true)
