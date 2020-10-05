@@ -31,7 +31,7 @@ RegisterNUICallback('updateSkin', function(data)
     gent = tonumber(data.gent)
     dad = tonumber(data.dad)
     mum = tonumber(data.mum)
-    dadmumpercent = tonumber(data.dadmumpercent) / 10 + 0.0
+    --dadmumpercent = tonumber(data.dadmumpercent) / 10 + 0.0
     skin = tonumber(data.skin)
     eyecolor = tonumber(data.eyecolor)
     acne = tonumber(data.acne)

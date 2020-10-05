@@ -3,6 +3,27 @@ input[name=css-tabs] {
   display: none
 }
 
+input[type=range].gender {
+  width: 100%;
+  width: -moz-available
+}
+
+.Genderimg {
+  display: flex;
+  font-size: 6vh;
+  height: 9vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.Genderimg:hover i {
+  font-weight: bold;
+}
+
+.block .input .type-img input[type=radio]:checked+.Genderimg i {
+  font-weight: bold;
+}
+
 input[type=range] {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */

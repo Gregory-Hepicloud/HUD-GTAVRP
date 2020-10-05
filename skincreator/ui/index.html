@@ -88,17 +88,27 @@
           <div class="group">
             <h2>Orientation</h2>
             <div class="input">
-              <div class="label">Sexe</div>
-              <div class="label-value" data-legend="" style="display: none"></div>
-              <div class="type-range">
-                <a href="#" class="arrow arrow-left">&nbsp;</a>
-                <input id='gent' value="0" type="range" class="gent" min="0" max="1" />
-                <a href="#" class="arrow arrow-right">&nbsp;</a>
+              <div class="label">
+                <span lang="fr">Sexe</span>
               </div>
-            </div><br>
-            <h2>Morphologie</h2>
+              <div class="type-img">
+                <label class="genderLbl" for="M">
+                  <input type="radio" name="gender" class="gender" value="0" id="M" checked onclick="myFunction(0)"/>
+                  <div class="Genderimg img">
+                    <i class="fas fa-male"></i>
+                  </div>
+                </label>
+                <label class="genderLbl" for="F">
+                  <input type="radio" name="gender" class="gender" value="1" id="F" onclick="myFunction(1)"/>
+                  <div class="Genderimg img">
+                    <i class="fas fa-female"></i>
+                  </div>
+                </label>
+              </div>
+            </div>
+            <br>
             <div class="input" id="genderMale">
-              <div class="label">Visage du père</div>
+              <div class="label">Homme</div>
               <div class="type-img">
                 <label for="pere1">
                   <input
@@ -392,7 +402,7 @@
               </div>
             </div>
             <div class="input" id="genderFemale">
-              <div class="label">Visage de la mère</div>
+              <div class="label">Femme</div>
               <div class="type-img">
                 <label for="mere1">
                   <input
@@ -1736,23 +1746,6 @@
       </div>
     </div>
 
-    <!-- JS Scripts -->
-    <script>
-
-      $('#gent').change(function() {
-        faceselect($(this).val())
-      });
-
-      function faceselect(val) {
-      if (val == 0) {
-        document.getElementById("genderMale").style.display = "block";
-        document.getElementById("genderFemale").style.display = "none";
-      } else {
-        document.getElementById("genderMale").style.display = "none";
-        document.getElementById("genderFemale").style.display = "block";
-      }
-    }
-    </script>
     <script src="js/front.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
   </body>

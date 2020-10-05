@@ -18,11 +18,11 @@ $(document).ready(function(){
   $('input').change(function(){
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: false,
-      gent : $('.gent').val(),
+      gender: $('input[name=gender]:checked', '#formSkinCreator').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
-      dadmumpercent: $('.morphologie').val(),
+      //dadmumpercent: $('.morphologie').val(),
       skin: $('input[name=peaucolor]:checked', '#formSkinCreator').val(),
       eyecolor: $('input[name=eyecolor]:checked','#formSkinCreator').val(),
       acne: $('.acne').val(),
@@ -51,11 +51,11 @@ $(document).ready(function(){
     e.preventDefault();
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: false,
-      gent : $('.gent').val(),
+      gender: $('input[name=gender]:checked', '#formSkinCreator').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
-      dadmumpercent: $('.morphologie').val(),
+      //dadmumpercent: $('.morphologie').val(),
       skin: $('input[name=peaucolor]:checked', '#formSkinCreator').val(),
       eyecolor: $('input[name=eyecolor]:checked','#formSkinCreator').val(),
       acne: $('.acne').val(),
@@ -86,11 +86,11 @@ $(document).ready(function(){
     e.preventDefault();
     $.post('http://skincreator/updateSkin', JSON.stringify({
       value: true,
-      gent : $('.gent').val(),
+      gender: $('input[name=gender]:checked', '#formSkinCreator').val(),
       // Face
       dad: $('input[name=pere]:checked', '#formSkinCreator').val(),
       mum: $('input[name=mere]:checked', '#formSkinCreator').val(),
-      dadmumpercent: $('.morphologie').val(),
+      //dadmumpercent: $('.morphologie').val(),
       skin: $('input[name=peaucolor]:checked', '#formSkinCreator').val(),
       eyecolor: $('input[name=eyecolor]:checked','#formSkinCreator').val(),
       acne: $('.acne').val(),
@@ -148,5 +148,15 @@ $(document).ready(function(){
       }));
     }
   });
+
+  function myFunction(val) {
+    if (val == 0) {
+      document.getElementById("genderMale").style.display = "block";
+      document.getElementById("genderFemale").style.display = "none";
+    } else {
+      document.getElementById("genderMale").style.display = "none";
+      document.getElementById("genderFemale").style.display = "block";
+    }
+  }  
 
 });
