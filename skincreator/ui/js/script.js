@@ -1,49 +1,18 @@
 $(document).ready(function(){
-  // Mouse Controls
-  var documentWidth = document.documentElement.clientWidth;
-  var documentHeight = document.documentElement.clientHeight;
-  var cursor = $('#cursorPointer');
-  var cursorX = documentWidth / 2;
-  var cursorY = documentHeight / 2;
-
-  function UpdateCursorPos() {
-    $('#cursorPointer').css('left', cursorX);
-    $('#cursorPointer').css('top', cursorY);
-  }
-
-  function triggerClick(x, y) {
-    var element = $(document.elementFromPoint(x, y));
-    element.focus().click();
-    return true;
-  }
-
   // Listen for NUI Events
   window.addEventListener('message', function(event){
     // Open Skin Creator
     if(event.data.openSkinCreator == true){
       $(".skinCreator").css("display","block");
-      $("#cursorPointer").css("display","block");
     }
     // Close Skin Creator
     if(event.data.openSkinCreator == false){
       $(".skinCreator").fadeOut(400);
       $(".rotation").fadeOut(400);
-      $("#cursorPointer").css("display","none");
-    }
-
-    // Click
-    if (event.data.type == "click") {
-      triggerClick(cursorX - 2, cursorY - 2);
     }
   });
 
-  // Mousemove
-  $(document).mousemove(function(event) {
-    cursorX = event.pageX+2;
-    cursorY = event.pageY+2;
-    UpdateCursorPos();
-    });
-    
+
 
   // Form update
   $('input').change(function(){

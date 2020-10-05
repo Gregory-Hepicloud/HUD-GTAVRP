@@ -961,6 +961,7 @@ function SkinCreator(enable)
 			SetCamCoord(cam, x+0.3, y+2.0, z+0.0)
 			SetCamRot(cam, 0.0, 0.0, 170.0)
 		end
+		SetEntityHeading(GetPlayerPed(-1), heading)
 	else
 		FreezeEntityPosition(ped, false)
 		SetPlayerInvincible(ped, false)
@@ -970,25 +971,20 @@ function SkinCreator(enable)
 end
 
 function ShowSkinCreator(enable)
-	SetNuiFocus(enable)
+	SetNuiFocus(enable, enable)
 	SendNUIMessage({
 		openSkinCreator = enable
 	})
 end
 
-
-------------------------------------------------------------------
---                          Citizen
-------------------------------------------------------------------
-
-Citizen.CreateThread(function()
-	while true do
-		if isSkinCreatorOpened == true then
-			SkinCreator(true)
-			SetEntityHeading(GetPlayerPed(-1), heading)
-		else
-			SkinCreator(false)
-		end
-		Citizen.Wait(0)
+RegisterNetEvent("hud:loadMenu")
+AddEventHandler(
+	"hud:loadMenu",
+	function()
+		ShowSkinCreator(true)
 	end
+)
+
+RegisterCommand("nui", function(source, args)
+    ShowSkinCreator(true)
 end)
