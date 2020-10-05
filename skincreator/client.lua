@@ -34,8 +34,6 @@ RegisterNUICallback('updateSkin', function(data)
         dad = tonumber(data.mum)
     end
     -- Face
-    dad = tonumber(data.dad)
-    mum = tonumber(data.mum)
     dadmumpercent = tonumber(data.dadmumpercent) / 10 + 0.0
     skin = tonumber(data.skin)
     eyecolor = tonumber(data.eyecolor)
@@ -1180,11 +1178,6 @@ end)
 ------------------------------------------------------------------
 --                          Functions
 ------------------------------------------------------------------
-
-function SkinCreator(enable)
-    local ped = GetPlayerPed(-1)
-    ShowSkinCreator(enable)
-end
 
 -- Disable Controls
 Citizen.CreateThread(function()
