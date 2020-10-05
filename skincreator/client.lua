@@ -27,9 +27,8 @@ end)
 
 RegisterNUICallback('updateSkin', function(data)
     v = data.value
-    -- Sex
-    gent = tonumber(data.gent)
     -- Face
+    gent = tonumber(data.gent)
     dad = tonumber(data.dad)
     mum = tonumber(data.mum)
     dadmumpercent = tonumber(data.dadmumpercent) / 10 + 0.0
@@ -79,9 +78,9 @@ RegisterNUICallback('updateSkin', function(data)
         local prop_watches = GetPedPropIndex(ped, 6)
         local prop_watches_text = GetPedPropTextureIndex(ped, 6)
 
-        local skinn = {
+        local skin_data = {
             ["sex"] = gent,
-            ["face"] = dad,
+            ["face"] = face,
             ["skin"] = skin,
             ["eye_color"] = eyecolor,
             ["complexion_1"] = skinproblem,
@@ -100,8 +99,8 @@ RegisterNUICallback('updateSkin', function(data)
             ["hair_2"] = 0,
             ["hair_color_1"] = haircolor,
             ["hair_color_2"] = haircolor,
-            ["arms"] = torso,
-            ["arms_2"] = torsotext,
+            ["arms"] = hand,
+            ["arms_2"] = handtext,
             ["pants_1"] = leg,
             ["pants_2"] = legtext,
             ["shoes_1"] = shoes,
@@ -110,8 +109,8 @@ RegisterNUICallback('updateSkin', function(data)
             ["chain_2"] = accessorytext,
             ["tshirt_1"] = undershirt,
             ["tshirt_2"] = undershirttext,
-            ["torso_1"] = torso2,
-            ["torso_2"] = torso2text,
+            ["torso_1"] = torso,
+            ["torso_2"] = torsotext,
             ["helmet_1"] = prop_hat,
             ["helmet_2"] = prop_hat_text,
             ["glasses_1"] = prop_glasses,
@@ -121,11 +120,14 @@ RegisterNUICallback('updateSkin', function(data)
             ["watches_1"] = prop_watches,
             ["watches_2"] = prop_watches_text
         }
-        TriggerServerEvent('updateSkin', skinn)
+
+        TriggerServerEvent("esx_skin:save", skin_data)
+        TriggerEvent('skinchanger:loadSkin', skin_data)
+        Citizen.Wait(1000)
+
         CloseSkinCreator()
     else
         local playerPed = PlayerPedId()
-    
         local characterModel
 
         if gent == 0 then
@@ -135,11 +137,9 @@ RegisterNUICallback('updateSkin', function(data)
             TriggerEvent("skinchanger:change", "sex", 1)
             face = mum
         end
-        
-		SetPedHeadBlendData(playerPed, face, face, face, skin, skin, skin, 1.0, 1.0, 1.0, true)
 
         -- Face
-        --SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
+        SetPedHeadBlendData(playerPed, face, face, face, skin, skin, skin, 1.0, 1.0, 1.0, true)
         -- SetPedHeadBlendData			(GetPlayerPed(-1), dad, mum, dad, skin, skin, skin, dadmumpercent * 0.1, dadmumpercent * 0.1, 1.0, true)
         SetPedEyeColor(GetPlayerPed(-1), eyecolor)
         if acne == 0 then

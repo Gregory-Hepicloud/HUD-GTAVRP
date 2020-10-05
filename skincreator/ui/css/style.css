@@ -1,3 +1,8 @@
+#genderFemale,
+input[name=css-tabs] {
+  display: none
+}
+
 input[type=range] {
   -webkit-appearance: none;
   /* Hides the slider so that custom slider can be made */
