@@ -6,6 +6,7 @@ local isSkinCreatorOpened = false -- Change this value to show/hide UI
 local cam = -1 -- Camera control
 local heading = 332.219879 -- Heading coord
 local zoom = "visage" -- Define which tab is shown first (Default: Head)
+local PrevGender
 
 ------------------------------------------------------------------
 --                          ESX
@@ -28,12 +29,9 @@ RegisterNUICallback('updateSkin', function(data)
     v = data.value
     -- Sex
     gent = tonumber(data.gent)
-    if gent == 0 then
-        dad = tonumber(data.dad)
-    else
-        dad = tonumber(data.mum)
-    end
     -- Face
+    dad = tonumber(data.dad)
+    mum = tonumber(data.mum)
     dadmumpercent = tonumber(data.dadmumpercent) / 10 + 0.0
     skin = tonumber(data.skin)
     eyecolor = tonumber(data.eyecolor)
@@ -127,31 +125,17 @@ RegisterNUICallback('updateSkin', function(data)
         CloseSkinCreator()
     else
         local playerPed = PlayerPedId()
-        local characterModel
+        if PrevGender ~= gender then
+            local characterModel
 
-        if gent == 0 then
-            characterModel = GetHashKey('mp_m_freemode_01')
-        elseif gent > 1 then
-            characterModel = pedList[gent - 1]
-        else
-            characterModel = GetHashKey('mp_f_freemode_01')
+            if gender == 0 then
+                TriggerEvent("skinchanger:change", "sex", 0)
+                face = dad
+            else
+                TriggerEvent("skinchanger:change", "sex", 1)
+                face = mum
+            end
         end
-
-        RequestModel(characterModel)
-
-        while not HasModelLoaded(characterModel) do
-            RequestModel(characterModel)
-            Citizen.Wait(1)
-        end
-
-        if IsModelInCdimage(characterModel) and IsModelValid(characterModel) then
-            SetPlayerModel(PlayerId(), characterModel)
-
-        end
-
-        SetModelAsNoLongerNeeded(characterModel)
-
-        SetPedDefaultComponentVariation(GetPlayerPed(-1))
 
         -- Face
         SetPedHeadBlendData(GetPlayerPed(-1), dad, mum, 0, skin, skin, skin, dadmumpercent, dadmumpercent, 0.0, false)
