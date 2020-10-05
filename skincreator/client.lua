@@ -67,8 +67,7 @@ RegisterNUICallback('updateSkin', function(data)
             leg, legtext, shoes, shoestext, accessory, accessorytext, undershirt, undershirttext, torso2, torso2text,
             prop_hat, prop_hat_text, prop_glasses, prop_glasses_text, prop_earrings, prop_earrings_text, prop_watches,
             prop_watches_text)
-        isSkinCreatorOpened = false
-        SkinCreator(false)
+		CloseSkinCreator()
     else
         SetPedDefaultComponentVariation(GetPlayerPed(-1))
 
@@ -1154,6 +1153,19 @@ function ShowSkinCreator(enable)
     SendNUIMessage({
         openSkinCreator = enable
     })
+end
+
+function CloseSkinCreator()
+	isSkinCreatorOpened = false
+	local ped = PlayerPedId()
+	ShowSkinCreator(false)
+	isCameraActive = false
+	SetCamActive(cam, false)
+	RenderScriptCams(false, true, 500, true, true)
+	cam = nil
+
+	-- Player
+	SetPlayerInvincible(ped, false)
 end
 
 RegisterNetEvent("hud:loadMenu")
